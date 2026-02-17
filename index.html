@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Carta</title>
+<style>
+    body {
+        background: #ffe6e6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+    }
+
+    .contenedor {
+        perspective: 1000px;
+    }
+
+    .carta {
+        width: 220px;
+        height: 150px;
+        position: relative;
+        cursor: pointer;
+        transform-style: preserve-3d;
+        transition: transform 0.8s;
+    }
+
+    .carta.abierta {
+        transform: rotateX(180deg);
+    }
+
+    .frente, .interior {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .frente {
+        background: #ff4d6d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 22px;
+    }
+
+    .interior {
+        background: white;
+        transform: rotateX(180deg);
+        padding: 15px;
+        box-sizing: border-box;
+        text-align: center;
+        color: #b3003c;
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+</head>
+<body>
+
+<div class="contenedor">
+    <div class="carta" onclick="abrirCarta(this)">
+        <div class="frente">💌 Tócame</div>
+        <div class="interior">
+            Perdón por no ser el novio perfecto, hago el intento para serlo porque te lo mereces. Te amo mucho ❤️
+        </div>
+    </div>
+</div>
+
+<script>
+function abrirCarta(elemento) {
+    elemento.classList.toggle("abierta");
+}
+</script>
+
+</body>
+</html>
